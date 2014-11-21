@@ -134,7 +134,7 @@
 		                       			<label>Selecione uma foto pro perfil</label>
 		                       	 		<input type="file" name="file">
 		                       		</c:otherwise>
-		                       	</c:choose>		                        
+		                       	</c:choose>
 		                    </div>
 		                </div>
 		                <br/>
