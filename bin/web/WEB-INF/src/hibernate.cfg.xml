@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"> 
+
+<hibernate-configuration>
+
+	<session-factory>
+	
+		<property name="hibernate.dialect">org.hibernate.dialect.SQLServer2008Dialect</property>
+		<property name="hibernate.connection.url">jdbc:jtds:sqlserver://localhost:1433;DatabaseName=sghp</property>
+		<property name="hibernate.connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property>
+		<property name="hibernate.connection.username">sghp</property>
+		<property name="hibernate.connection.password">#sghp@ledware</property>
+
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">false</property>
+		<property name="hibernate.use_sql_comments">false</property>
+
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
+		<property name="hibernate.cache.use_query_cache">true</property>
+		<property name="hibernate.cache.use_second_level_cache">true</property>
+		<property name="hibernate.cache.use_structured_entries">true</property>
+		<property name="hibernate.cache.provider_configuration_file_resource_path">/ehcache.xml</property>
+
+	<!-- Configuration of Multi Tenancy -->
+	<!--
+		<property name="hibernate.multiTenancy">DATABASE</property>
+		<property name="hibernate.tenant_identifier_resolver">tenant.util.SchemaResolver</property>
+		<property name="hibernate.multi_tenant_connection_provider">tenant.util.MultiTenantProvider</property>
+	-->
+
+	<!-- Configuration of connection pool via c3p0 -->
+		<property name="hibernate.connection.provider_class">org.hibernate.service.jdbc.connections.internal.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.min_size">3</property>
+		<property name="hibernate.c3p0.max_size">50</property>
+		<property name="hibernate.c3p0.acquire_increment">3</property>
+		<property name="hibernate.c3p0.max_statements">0</property>
+		<property name="hibernate.c3p0.idle_test_period">750</property>
+		<property name="hibernate.c3p0.maxIdleTime">60</property>
+		<property name="hibernate.c3p0.maxIdleTimeExcessConnections">30</property>
+		<property name="hibernate.c3p0.numHelperThreads">3</property>
+
+	<!-- Mapeamentos -->
+
+		<!-- Administrativo -->
+		<mapping class="administrativo.bean.Funcao" />
+		<mapping class="administrativo.bean.Perfil" />
+		<mapping class="administrativo.bean.Permissao" />
+		<mapping class="administrativo.bean.Usuario" />
+		<!-- Agenda -->
+		<mapping class="agenda.bean.Reserva" />
+		<mapping class="agenda.bean.ReservaAcomodacao" />
+		<mapping class="agenda.bean.Situacao" />
+		<!-- Clientes -->
+		<mapping class="clientes.bean.Hospedagem" />
+		<mapping class="clientes.bean.Hospede" />
+		<mapping class="clientes.bean.HospedeHospedagem" />		
+		<mapping class="clientes.bean.Responsavel" />
+		<!-- Compras -->
+		<mapping class="compras.bean.ItemOrdemCompra" />
+		<mapping class="compras.bean.OrdemCompra" />
+		<mapping class="compras.bean.ItemOrdemCompraHospedagem" />
+		<!-- Estoques -->
+		<mapping class="estoque.bean.Estoque" />
+		<mapping class="estoque.bean.Fabricante" />
+		<mapping class="estoque.bean.Fornecedor" />
+		<mapping class="estoque.bean.ItemEstoque" />
+		<mapping class="estoque.bean.Produto" />
+		<mapping class="estoque.bean.ProdutoFornecedor" />
+		<mapping class="estoque.bean.TipoEstoque" />
+		<mapping class="estoque.bean.TipoProduto" />
+		<!-- Financeiro -->
+		<mapping class="financeiro.bean.Categoria" />
+		<mapping class="financeiro.bean.ContaBancaria" />
+		<mapping class="financeiro.bean.ContaPagar" />
+		<mapping class="financeiro.bean.ContaReceber" />
+		<mapping class="financeiro.bean.Especie" />
+		<mapping class="financeiro.bean.Movimentacao" />
+		<mapping class="financeiro.bean.TipoMovimentacao" />
+		<!-- Hotel -->
+		<mapping class="hotel.bean.Acomodacao" />
+		<mapping class="hotel.bean.FormaPagamento" />
+		<mapping class="hotel.bean.Hotel" />
+		<mapping class="hotel.bean.Status" />
+		<mapping class="hotel.bean.TipoAcomodacao" />
+
+	</session-factory>
+
+</hibernate-configuration>
+	

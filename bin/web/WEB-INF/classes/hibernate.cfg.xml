@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+    
+        <property name='connection.driver_class'>com.mysql.jdbc.Driver</property>
+        <property name='connection.url'>jdbc:mysql://localhost:3306/freelancer-br</property>
+        <property name='connection.username'>wsfree</property>
+        <property name='connection.password'>#wsfree@freela.com</property>
+        <property name='connection.pool_size'>1</property>
+        <property name='dialect'>org.hibernate.dialect.MySQLDialect</property>
+        <property name='show_sql'>true</property>
+	 
+      <!-- Mapeamentos -->
+		
+		<!-- Contratante -->
+		<mapping class="contratante.bean.Contratante" />
+		
+		<!-- Freelancer -->
+		<mapping class="freelancer.bean.Anuncio" />
+		<mapping class="freelancer.bean.Freelancer" />
+		<mapping class="freelancer.bean.Habilidades" />
+		
+		<!-- Pessoa -->
+		<mapping class="pessoa.bean.Fisica" />
+		<mapping class="pessoa.bean.Juridica" />
+		
+		<!-- Site -->
+		<mapping class="site.bean.Usuario" />
+		
+    </session-factory>
+    
+</hibernate-configuration>

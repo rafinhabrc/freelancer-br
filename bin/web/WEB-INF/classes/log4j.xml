@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Log no Console -->
+	<appender name="LogConsole" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-2d{dd/MM/yy HH:mm:ss} %5p [%-30c{1}] %-100c:%-5L – %-20m%n"/>
+		</layout>
+	</appender>
+
+	<!-- Log para Arquivo (Hibernate)-->
+	<appender name="LogArquivoHibernate" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="${catalina.base}/logs/hibernate.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-2d{dd/MM/yy HH:mm:ss} %5p [%-30c{1}] %-100c:%-5L – %-20m%n"/>
+		</layout>
+	</appender>
+
+	<!-- Log para Email -->
+	<appender name="LogEmail" class="org.apache.log4j.net.SMTPAppender">
+        <param name="BufferSize" value="5" />
+        <param name="SMTPHost" value="smtp.ledware.com.br" />
+        <param name="SMTPPort" value="587" />
+        <param name="SMTPUsername" value="site@ledware.com.br" />
+        <param name="SMTPPassword" value="qaz963" />
+        <param name="From" value="site@ledware.com.br" />
+        <param name="To" value="luizhenrique@ledware.com.br" />
+        <param name="Subject" value="Log de Erro no Tomcat" />
+
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-2d{dd/MM/yy HH:mm:ss} %5p [%-30c{1}] %-100c:%-5L – %-20m%n"/>
+		</layout>
+	</appender>
+
+	<category name="br.com.caelum.vraptor">
+		<priority value="WARN" />
+		<appender-ref ref="LogConsole" />
+	</category>
+
+	<category name="br.com.caelum.vraptor.interceptor.multipart">
+		<priority value="ERROR" />
+		<appender-ref ref="LogConsole" />
+	</category>
+
+	<category name="org.hibernate">
+		<priority value="INFO" />
+		<appender-ref ref="LogConsole" />
+	</category>
+
+</log4j:configuration>
