@@ -138,7 +138,7 @@
 		                    </div>
 		                </div>
 		                <br/>
-		                
+
 		                <div class="row" style="text-align: center;">
 		                	<button type="reset" class="btn btn-default"><i class="glyphicon glyphicon-refresh"></i> Limpar</button>
 		                	<button type="submit" class="btn btn-gravar"><i class="glyphicon glyphicon-ok"></i> Gravar</button>
